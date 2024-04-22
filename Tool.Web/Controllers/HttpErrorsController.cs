@@ -4,7 +4,6 @@ namespace Tool.Web.Controllers
 {
     public class HttpErrorsController : Controller
     {
-        // GET: HttpErrors
         public ActionResult NotFound()
         {
             Response.StatusCode = 404;
