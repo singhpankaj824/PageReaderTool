@@ -17,6 +17,7 @@ namespace Tool.Web.Controllers
             return View();
         }
         [HttpPost]
+        [OutputCache(Duration = 20)]
         public ActionResult Index(DataModel form)
         {
             if (!ModelState.IsValid)
