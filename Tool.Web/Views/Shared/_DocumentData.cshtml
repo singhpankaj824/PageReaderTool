@@ -1,0 +1,59 @@
+﻿@model Tool.Web.Models.DocumentData
+@{
+    ViewBag.Title = "Document Data";
+}
+
+<div style="margin:50px 0 100px 0">
+    <div class="lightbox-gallery">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Image Gallery</h2>
+                <p class="text-center">Find all Images from <b>@Tool.Web.Repository.DocumentManager.domainName</b> page.</p>
+            </div>
+            <div class="row photos">
+                @foreach (var item in Model.ImageURL)
+                {
+                    string URL = (item.Contains("http")) ? item : string.Format($"{Tool.Web.Repository.DocumentManager.domainName}{item}");
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="@URL" data-lightbox="photos"><img style="border:2px solid black" class="img-fluid" src="@URL"></a></div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="container">
+        <div class="intro">
+            <div class="alert alert-success" role="alert">
+                <div class="text-center">We found <b>@Model.TotalNumberOfWords</b>  words on <b>@Tool.Web.Repository.DocumentManager.domainName</b></div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-12 col-lg-12 item">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color:black;color:white">
+                        Top 10 Occurring Words
+                    </li>
+
+                    @foreach (var item in Model.TopOccurringWords)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            @item.Name
+                            <span class="badge text-bg-primary rounded-pill">@item.Count</span>
+                        </li>
+                    }
+
+
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

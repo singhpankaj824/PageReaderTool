@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Tool
+/packages/Antlr.3.5.0.2
+/Tool.Web/.vs
